@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Networks:</h2>
+    <ol>
+        <ui:repeat value="#{networks.allNetworks}" var="network">
+            <li><h:link value="#{network.networkName}" outcome="hotels?networkId=#{network.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{networks.networkToCreate.networkName}" required="true" />
+        <h:commandButton value="Add new network" action="#{networks.createNetwork}" />
+    </h:form>
+    <h:link outcome="myBatis/networks" value="MyBatis implementation"/>
+    <h2>Clients:</h2>
+    <ol>
+        <ui:repeat value="#{clients.allClients}" var="client">
+            <li>#{client.clientName}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{clients.clientToCreate.clientName}" required="true" />
+        <h:commandButton value="Add new client" action="#{clients.createClient}" />
+    </h:form>
+    <h:link outcome="myBatis/networks" value="MyBatis implementation"/>
+    <h2>Hotels:</h2>
+    <ol>
+        <ui:repeat value="#{hotels.allHotels}" var="hotel">
+            <li>#{hotel.hotelName}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Client Id:<h:inputText value="#{clientsForHotel.clientId}" required="true" />
+        Hotel Id:<h:inputText value="#{clientsForHotel.hotelId}" required="true" />
+        <h:commandButton value="Add client to hotel" action="#{clientsForHotel.createClient}" />
+    </h:form>
+    <h:link outcome="myBatis/networks" value="MyBatis implementation"/>
+
+</h:body>
+</html>

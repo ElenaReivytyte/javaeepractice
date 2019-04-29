@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//myBatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="myBatis.model.Network" alias="Network"/>
+        <typeAlias type="myBatis.model.Hotel" alias="Hotel"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="openejb:Resource/HotelsDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/NetworkMapper.xml"/>
+        <mapper resource="mybatis.xml/HotelMapper.xml"/>
+    </mappers>
+</configuration>
