@@ -6,7 +6,7 @@
 >
 <h:head/>
 <h:body>
-    <h2>Networks:</h2>
+    <h2>All Networks:</h2>
     <ol>
         <ui:repeat value="#{networks.allNetworks}" var="network">
             <li><h:link value="#{network.networkName}" outcome="hotels?networkId=#{network.id}" /></li>
